@@ -54,6 +54,10 @@ So here are some steps: (this works for many windows users in my Forum members.)
 > * Click "Save as" then name it: sublime_text.exe
 > * Copy your modified sublime_text.exe to directory Sublime Text (C:\Program Files\Sublime Text\)
 - If it still doesn't work after patching (don't delete the modified file) try opening CMD then:
-  - $ cd C:/Program Files/Sublime Text
-  - $ icacls sublime_text.exe /grant:r "Administrators:(OI)(CI)F" "%USERNAME%:(OI)(CI)F"
+  - ```bash
+    cd C:/Program Files/Sublime Text
+    ```
+  - ```
+    icacls sublime_text.exe /grant:r "Administrators:(OI)(CI)F" "%YourUSERNAME%:(OI)(CI)F"
+    ```
   
