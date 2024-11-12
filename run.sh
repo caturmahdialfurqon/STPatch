@@ -8,10 +8,10 @@ blue='\033[0;34m'
 reset='\033[0m'
 
 
-echo -e "OS Selection Menu"  # Use bold for title
+echo -e "OS Selection Menu"
 echo -e "1. ${green}MacOS${reset}"
 echo -e "2. ${yellow}Linux${reset}"
-echo -e "3. ${blue}Windows${reset}"  # Assuming blue for Windows
+echo -e "3. ${blue}Windows${reset}"
 echo -e "4. ${red}Exit${reset}"
 
 read -p "Choose an option: " option
@@ -37,6 +37,10 @@ case $option in
       echo -e "${yellow}Start Patching Sublime Text...${reset}"
       sudo cp /opt/sublime_text/sublime_text ./sublime_text.old
       sudo sed -i 's/\x80\x79\x05\x00\x0F\x94\xC2/\xC6\x41\x05\01\xB2\x00\x90/' /opt/sublime_text/sublime_text
+      sudo cd /opt/sublime_text/
+      chmod 755 sublime_text
+      sudo chown root sublime_text
+      sudo chgrp root sublime_text
       echo -e "${green}Patching Successfully Done..${reset}"
     fi
     ;;
@@ -46,7 +50,7 @@ case $option in
     if [[ $confirm == "y" || $confirm == "Y" ]]; then
     echo -e "* Install ${yellow}[HxD-Editor](https://mh-nexus.de/en/downloads.php?product=HxD20#)${reset} or visit ${yellow}https://hexed.it/${reset}"
     echo -e "  * Click File -> Open ->C:\Program Files\Sublime Text\sublime_text.exe"
-    echo -e "  * Click Search -> Replace -> Hex Values -> 80 79 05 00 0F 94 C2 -> C6 41 05 01 B2 00 90"
+    echo -e "  * Click Search -> Replace -> Hex Values -> 80 79 05 00 0F 94 C2 to C6 41 05 01 B2 00 90"
     echo -e "  * Save: Ctrl+S or save file (on hexed.it)"
     echo -e "  ${green}Successfully Done!${reset}"
     fi
