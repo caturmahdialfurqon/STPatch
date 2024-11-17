@@ -37,8 +37,8 @@ case $option in
       echo -e "${yellow}Start Patching Sublime Text...${reset}"
       sudo cp /opt/sublime_text/sublime_text ./sublime_text.old
       sudo sed -i 's/\x80\x79\x05\x00\x0F\x94\xC2/\xC6\x41\x05\01\xB2\x00\x90/' /opt/sublime_text/sublime_text
-      sudo cd /opt/sublime_text/
-      chmod 755 sublime_text
+      cd /opt/sublime_text/
+      sudo chmod 755 sublime_text
       sudo chown root sublime_text
       sudo chgrp root sublime_text
       echo -e "${green}Patching Successfully Done..${reset}"
